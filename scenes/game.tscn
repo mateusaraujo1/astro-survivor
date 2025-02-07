@@ -28,7 +28,7 @@ texture = ExtResource( 1 )
 centered = false
 
 [node name="ship" type="Node2D" parent="."]
-position = Vector2( 21, 268 )
+position = Vector2( 36, 265 )
 script = ExtResource( 3 )
 __meta__ = {
 "_edit_group_": true
@@ -42,3 +42,6 @@ frame = 1
 [node name="anim" type="AnimationPlayer" parent="ship"]
 autoplay = "fogo"
 anims/fogo = SubResource( 1 )
+
+[node name="blaster" type="Position2D" parent="ship"]
+position = Vector2( 0, -29 )

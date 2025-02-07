@@ -20,7 +20,9 @@ tracks/0/keys = {
 "values": [ 2, 3 ]
 }
 
-[node name="laser" type="Node2D"]
+[node name="laser" type="Node2D" groups=[
+"lasers",
+]]
 script = ExtResource( 2 )
 
 [node name="sprite" type="Sprite" parent="."]
@@ -33,3 +35,8 @@ frame = 3
 [node name="anim" type="AnimationPlayer" parent="."]
 autoplay = "default"
 anims/default = SubResource( 1 )
+
+[node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="."]
+position = Vector2( 2.98023e-08, -10 )
+scale = Vector2( 0.25, 0.2 )
+[connection signal="screen_exited" from="VisibilityNotifier2D" to="." method="_on_VisibilityNotifier2D_screen_exited"]

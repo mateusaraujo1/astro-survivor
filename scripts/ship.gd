@@ -32,9 +32,13 @@ func _process(delta):
 		direcao_y += 1
 		
 	if Input.is_action_just_pressed("ui_accept"):
-		var laser = PRE_LASER.instance()
-		get_parent().add_child(laser)
-		laser.global_position = global_position + Vector2(0, -30)
+		if get_tree().get_nodes_in_group("lasers").size() < 3:
+			#"lasers" é o grupo de lasers existentes (que estão visiveis na tela)
+			#só pode disparar se houver menos de 3 tiros
+			var laser = PRE_LASER.instance()
+			get_parent().add_child(laser)
+			#adiciona laser como filho da cena game
+			laser.global_position = $blaster.global_position 
 	
 	translate(Vector2(direcao_x, direcao_y) * velocidade * delta)
 	
