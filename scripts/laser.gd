@@ -16,3 +16,8 @@ func _process(delta):
 func _on_VisibilityNotifier2D_screen_exited():
 	queue_free()
 	 
+
+#esse sinal executa quando o laser bater no asteroide
+func _on_area_area_entered(area):
+	pass 
+#em collision: layer é quem eu sou, mask é em quem eu bato

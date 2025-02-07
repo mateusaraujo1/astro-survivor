@@ -82,6 +82,12 @@ mv-baixo={
  ]
 }
 
+[layer_names]
+
+2d_physics/layer_1="jogador"
+2d_physics/layer_2="laser"
+2d_physics/layer_3="asteroide"
+
 [rendering]
 
 environment/default_environment="res://default_env.tres"
