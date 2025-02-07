@@ -2,6 +2,7 @@ extends Node2D
 
 var velocidade = 200
 
+
 func _ready():
 	pass 
 
