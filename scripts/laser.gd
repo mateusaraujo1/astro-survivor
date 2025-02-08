@@ -17,7 +17,7 @@ func _on_VisibilityNotifier2D_screen_exited():
 	queue_free()
 	 
 
-#esse sinal executa quando o laser bater no asteroide
+#esse sinal executa quando o laser bater em algo (no asteroide)
 func _on_area_area_entered(area):
-	pass 
+	queue_free() 
 #em collision: layer é quem eu sou, mask é em quem eu bato

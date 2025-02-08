@@ -6,7 +6,7 @@
 [ext_resource path="res://scripts/background.gd" type="Script" id=4]
 [ext_resource path="res://scenes/asteroide.tscn" type="PackedScene" id=5]
 
-[sub_resource type="Shader" id=2]
+[sub_resource type="Shader" id=1]
 code = "shader_type canvas_item;
 
 uniform float velocidade = 1f;
@@ -17,13 +17,12 @@ void fragment(){
 	COLOR = texture(TEXTURE, UV + (vec2(0, -1f) * TIME * velocidade) + vec2(deslocamento, 0));
 }"
 
-[sub_resource type="ShaderMaterial" id=3]
-shader = SubResource( 2 )
+[sub_resource type="ShaderMaterial" id=2]
+shader = SubResource( 1 )
 shader_param/velocidade = 1.0
 shader_param/deslocamento = 0.0
 
-[sub_resource type="Animation" id=1]
-resource_name = "fogo"
+[sub_resource type="Animation" id=3]
 length = 0.2
 loop = true
 tracks/0/type = "value"
@@ -42,14 +41,14 @@ tracks/0/keys = {
 [node name="game" type="Node2D"]
 
 [node name="background" type="Sprite" parent="."]
-material = SubResource( 3 )
+material = SubResource( 2 )
 position = Vector2( -1, 0 )
 texture = ExtResource( 1 )
 centered = false
 script = ExtResource( 4 )
 
 [node name="ship" type="Node2D" parent="."]
-position = Vector2( 36, 265 )
+position = Vector2( 77, 265 )
 script = ExtResource( 3 )
 __meta__ = {
 "_edit_group_": true
@@ -61,10 +60,22 @@ hframes = 2
 
 [node name="anim" type="AnimationPlayer" parent="ship"]
 autoplay = "fogo"
-anims/fogo = SubResource( 1 )
+anims/fogo = SubResource( 3 )
 
 [node name="blaster" type="Position2D" parent="ship"]
 position = Vector2( 0, -29 )
 
 [node name="asteroide" parent="." instance=ExtResource( 5 )]
-position = Vector2( 69, 79 )
+position = Vector2( 65, 69 )
+
+[node name="asteroide5" parent="." instance=ExtResource( 5 )]
+position = Vector2( 47, 108 )
+
+[node name="asteroide2" parent="." instance=ExtResource( 5 )]
+position = Vector2( 28, 47 )
+
+[node name="asteroide3" parent="." instance=ExtResource( 5 )]
+position = Vector2( 120, 46 )
+
+[node name="asteroide4" parent="." instance=ExtResource( 5 )]
+position = Vector2( 108, 109 )
