@@ -9,9 +9,17 @@ export var velocidade = 100.0
 #posicao minima esquerda = 21
 #posicao maxima direita = 139
 
+
+export(NodePath) var lasers
+
+
 #acontece só quando a nave aparece
 func _ready():
-	pass 
+	if lasers:
+		lasers = get_node(lasers)
+	else:
+		lasers = get_parent()
+#se tiver lasers vai usar o já existente
 
 #essas ações acontecem 60x em um segundo
 func _process(delta):
@@ -37,8 +45,8 @@ func _process(delta):
 			#"lasers" é o grupo de lasers existentes (que estão visiveis na tela)
 			#só pode disparar se houver menos de 3 tiros
 			var laser = PRE_LASER.instance()
-			get_parent().add_child(laser)
-			#adiciona laser como filho da cena game
+			lasers.add_child(laser)
+			#adiciona laser como filho
 			laser.global_position = $blaster.global_position 
 	
 	translate(Vector2(direcao_x, direcao_y) * velocidade * delta)
