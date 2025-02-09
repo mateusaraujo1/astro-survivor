@@ -1,16 +1,25 @@
 extends Node2D
 
+const PRE_ASTEROIDE = preload("res://scenes/asteroide.tscn")
+
 export(NodePath) var nave
 
 func _ready():
-	if nave:
-		nave = get_node(nave)
-	else:
-		set_process(false)
+	restartTimer()
 
 
 
 func _process(delta):
-	
-	global_position.x = (nave.global_position.x - 80) * 0.002 * -160
-	#movimento horizontal dos asteroides
+	pass
+
+
+func _on_spawn_timer_timeout():
+	#quando o timer acabar, vai criar o inimigo
+	var asteroide = PRE_ASTEROIDE.instance()
+	add_child(asteroide)
+	asteroide.global_position = Vector2(rand_range(40, 120), -60)
+	restartTimer()
+
+func restartTimer():
+	$spawn_timer.wait_time = rand_range(.2, 1)
+	$spawn_timer.start()

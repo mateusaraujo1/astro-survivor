@@ -1,6 +1,8 @@
 extends Node2D
 
 var chosen = 0
+onready var velocidade_y = rand_range(30, 200)
+onready var velocidade_x = rand_range(-60, 60)
 
 func _ready():
 	randomize()
@@ -24,7 +26,15 @@ func _ready():
 
 
 func _process(delta):
-	pass
+	translate(Vector2(velocidade_x, velocidade_y) * delta)
+#faz o asteroide cair
+
+	if global_position.x > 200:
+		global_position.x = -40
+	if global_position.x < -40:
+		global_position.x = 200
+		
+	#quando asteroide some na lateral, aparece na outra lateral
 
 
 func _on_area_area_entered(area):
