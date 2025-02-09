@@ -1,15 +1,20 @@
 extends Node2D
 
 var velocidade = 200
-
+#export(NodePath) var nave
 
 func _ready():
-	pass 
+#	if nave:
+#		nave = get_node(nave)
+#	else:
+#		set_process(false)
+	pass
+ 
 
 
 func _process(delta):
 	translate(Vector2(0, -1) * velocidade * delta)
-	
+#	global_position.x = (nave.global_position.x - 80) * 0.002 * -160
 
 
 #quando o laser sair da visão da tela, será apagado

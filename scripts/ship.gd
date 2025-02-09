@@ -2,8 +2,9 @@ extends Node2D
 
 const PRE_LASER = preload("res://scenes/laser.tscn")
 
-var velocidade = 60
-#  pixels
+export var velocidade = 100.0
+# valor pixels
+#export para poder mudar o valor na outra tela
 
 #posicao minima esquerda = 21
 #posicao maxima direita = 139
