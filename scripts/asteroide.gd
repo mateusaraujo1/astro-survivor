@@ -38,5 +38,8 @@ func _process(delta):
 
 
 func _on_area_area_entered(area):
+	get_tree().call_group("camera", "treme", 1)
+	#chama o grupo camera, chama a funcao treme com valor 1
+	#treme se destruir um asteroide (talvez tirar isso)
 	queue_free()
-#asteroide some se bater em algo
+	#asteroide some se bater em algo
