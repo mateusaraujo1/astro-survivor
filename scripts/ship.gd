@@ -41,9 +41,9 @@ func _process(delta):
 		direcao_y += 1
 		
 	if Input.is_action_just_pressed("ui_accept"):
-		if get_tree().get_nodes_in_group("lasers").size() < 3:
+		if get_tree().get_nodes_in_group("lasers").size() < 7:
 			#"lasers" é o grupo de lasers existentes (que estão visiveis na tela)
-			#só pode disparar se houver menos de 3 tiros
+			#só pode disparar se houver menos de 7 tiros
 			var laser = PRE_LASER.instance()
 			lasers.add_child(laser)
 			#adiciona laser como filho

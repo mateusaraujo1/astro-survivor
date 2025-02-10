@@ -14,7 +14,8 @@ func _ready():
 		a.visible = false
 	#puxa todos os filhos do grupo "asteroides" e deixa invisiveis
 	
-	chosen = (randi() % $asteroides.get_child_count()) + 1
+	if not chosen: 
+		chosen = (randi() % $asteroides.get_child_count()) + 1
 	#gera um numero aleatorio entre 1 e 5
 	
 	var node = get_node("asteroides/asteroid-" + str(chosen))
@@ -38,7 +39,7 @@ func _process(delta):
 	#quando asteroide some na lateral, aparece na outra lateral
 	
 	if global_position.y > 300:
-		queue_free()
+		global_position.y = -60
 
 
 func _on_area_area_entered(area):

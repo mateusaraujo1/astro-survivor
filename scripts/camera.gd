@@ -1,7 +1,7 @@
 extends Camera2D
 
 var time = 0
-var forca = 1
+var forca = 0
 
 func _ready():
 	pass 
@@ -15,7 +15,7 @@ func _process(delta):
 		global_position = Vector2(forca, forca).rotated(time)
 		#faz a camera girar/tremer
 		
-		forca = lerp(forca, 0, .01)
+		forca = lerp(forca, 0, .05)
 	
 	#lerp faz ir de um valor (param 1) a outro valor (param 2) gradualmente (param 3)
 	#ou seja, faz o tremer ir parando aos poucos
