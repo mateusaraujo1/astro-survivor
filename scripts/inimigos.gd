@@ -1,6 +1,7 @@
 extends Node2D
 
 const PRE_ASTEROIDE = preload("res://scenes/asteroide.tscn")
+const PRE_EXPLOSAO = preload("res://scenes/explosion.tscn")
 
 export(NodePath) var nave
 
@@ -16,6 +17,7 @@ func _process(delta):
 func _on_spawn_timer_timeout():
 	#quando o timer acabar, vai criar o inimigo
 	var asteroide = PRE_ASTEROIDE.instance()
+	asteroide.connect("destroied", self, "on_asteroide_destroied")
 	add_child(asteroide)
 	asteroide.global_position = Vector2(rand_range(40, 120), -60)
 	restartTimer()
@@ -23,3 +25,9 @@ func _on_spawn_timer_timeout():
 func restartTimer():
 	$spawn_timer.wait_time = rand_range(.2, 1)
 	$spawn_timer.start()
+
+func on_asteroide_destroied(asteroide):
+	var explosao = PRE_EXPLOSAO.instance()
+	add_child(explosao)
+	explosao.global_position = asteroide.global_position
+	
